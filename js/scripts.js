@@ -6,11 +6,17 @@ $(document).ready(function() {
     var newTask = { taskName: inputTask };
 
     $("ul#tasks").append("<li id='task'>" + newTask.taskName +
-    "<button class='btn btn-primary mark-complete'></button><button class='btn btn-danger'></button></li>");
+    "<br><button class='btn btn-success mark-complete'>complete</button><button class='btn btn-danger delete'>delete</button></li>");
+    $("#task-list").show();
+
 
     $(".mark-complete").last().click(function() {
       $(this).closest('li').remove();
       $("ul#completed-tasks").append("<li>" + newTask.taskName + "</li>");
+    });
+
+    $(".delete").last().click(function() {
+      $(this).closest('li').remove();
     });
   });
 });
